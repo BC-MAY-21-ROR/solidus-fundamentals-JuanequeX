@@ -13,6 +13,18 @@
             </li>
         <% end %>
       </ul>
+
+      <ul id="main-nav-bar" class="inline list-unstyled" data-hook>
+        <li id="link-to-cart" data-hook>
+          <noscript>
+            <%= link_to t('spree.cart'), spree.cart_path, class:"text-decoration-none" %>
+          </noscript>
+          &nbsp;
+        </li>
+      </ul>
+      <script>
+        Spree.fetch_cart('<%= j spree.cart_link_path %>')
+      </script>
     </div>
   </div>
 </nav>
