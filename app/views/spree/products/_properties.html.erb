@@ -1,0 +1,13 @@
+<% unless @product_properties.empty? %>
+  <h6 class="product-section-title"><%= t('spree.properties')%></h6>
+  <ul id="product-properties" class="list-group" data-hook>
+    <% @product_properties.each do |product_property| %>
+      <% css_class = cycle('even', 'odd', name: "properties") %>
+      <li class="<%= css_class %> list-group-item d-flex justify-content-between align-items-center">
+        <span class="badge bg-primary rounded-pill"><%= product_property.value %></span>
+        <strong><%= product_property.property.presentation %></strong>
+      </li>
+    <% end %>
+    <% reset_cycle('properties') %>
+  </ul>
+<% end %>
