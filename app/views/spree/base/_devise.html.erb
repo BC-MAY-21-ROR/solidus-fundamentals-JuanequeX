@@ -1,0 +1,12 @@
+<div class="container">
+  <div data-hook>
+    <%= taxon_breadcrumbs(@taxon) %>
+    <div id="content" data-hook>
+      <%= flash_messages %>
+      <%= yield %>
+    </div>
+
+    <%= yield :templates %>
+
+  </div>
+</div>

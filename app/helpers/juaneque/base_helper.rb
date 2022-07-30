@@ -1,5 +1,13 @@
 module Juaneque
   module BaseHelper
+    def layout_partial
+      if devise_controller?
+        'spree/base/devise'
+      else
+        'spree/base/application'
+      end
+    end
+ 
     def logo(image_path = Spree::Config[:logo])
       link_to image_tag(image_path, class: 'header__logo'), spree.root_path
     end
