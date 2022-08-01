@@ -1,0 +1,21 @@
+<div style="background-image: url('https://images.unsplash.com/photo-1542060748-10c28b62716f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80');">
+  <div id="new-customer" class="d-flex justify-content-center align-items-center vh-100" >
+    <div id="forgot-password" class="card w-50">
+      <h6 class="card-header justify-content-center d-flex"><%= t('spree.forgot_password') %></h6>
+
+      <p class="justify-content-center d-flex mt-3"><%= t('spree.instructions_to_reset_password') %></p>
+
+      <%= form_for Spree::User.new, as: :spree_user, url: spree.reset_password_path do |f| %>
+        <div class="align-items-center d-flex flex-column mb-3">
+          <p>
+            <%= f.label :email, t('spree.email') %><br />
+            <%= f.email_field :email, required: true, class: "form-control" %>
+          </p>
+          <p>
+            <%= f.submit t('spree.reset_password'), class: 'btn btn-primary w-100' %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

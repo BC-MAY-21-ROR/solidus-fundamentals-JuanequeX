@@ -1,0 +1,30 @@
+<%= render partial: 'spree/shared/error_messages', locals: { target: @user } %>
+<div class="vh-100 d-flex justify-content-center align-items-center">
+  <div class="card mt-3 mb-3 w-100">
+    <div class="card-header text-center">
+      <h1 class="fs-4"><%= t('spree.registration') %></h1>
+    </div>
+    <div class="card-body">
+      <div id="registration" class="d-flex justify-content-evenly flex-row" data-hook>
+        <div id="account" class="columns alpha eight">
+          <%= render partial: 'spree/user_sessions/login' %>
+        </div>
+        <% if Spree::Config[:allow_guest_checkout] %>
+          <div id="guest_checkout" data-hook class="columns alpha eight">
+            <div class="alert alert-info"><%= t('spree.guest_user_account') %></div>
+            <% if flash[:registration_error] %>
+              <div class='flash error'><%= flash[:registration_error] %></div>
+            <% end %>
+            <%= form_for @order, url: update_checkout_registration_path, method: :put, html: { id: 'checkout_form_registration' } do |f| %>
+              <p>
+                <%= f.label :email, t('spree.email') %>
+                <%= f.email_field :email, class: 'title form-control' %>
+              </p>
+              <div><%= f.submit t('spree.continue'), class: 'w-100 btn btn-primary btn-block' %></div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
