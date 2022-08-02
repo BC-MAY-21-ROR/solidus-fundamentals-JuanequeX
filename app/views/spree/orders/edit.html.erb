@@ -33,9 +33,9 @@
     <div id="empty-cart" data-hook>
       <%= form_tag empty_cart_path, method: :put do %>
         <p id="clear_cart_link" data-hook>
-        <%= submit_tag t('spree.empty_cart'), class: 'button gray btn btn-outline-danger' %>
+        <%= submit_tag t('spree.empty_cart'), class: 'btn btn-outline-danger' %>
         <%= t('spree.or') %>
-        <%= link_to t('spree.continue_shopping'), products_path, class: 'continue button gray btn btn-outline-primary' %>
+        <%= link_to t('spree.continue_shopping'), products_path, class: 'continue btn btn-outline-primary' %>
         </p>
       <% end %>
     </div>
